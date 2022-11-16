@@ -151,10 +151,6 @@ public class NPC {
         .queueDestroy()
         .send(player);
     this.removeSeeingPlayer(player);
-
-    Bukkit.getScheduler().runTask(
-        plugin,
-        () -> Bukkit.getPluginManager().callEvent(new PlayerNPCHideEvent(player, this, reason)));
   }
 
   /**
