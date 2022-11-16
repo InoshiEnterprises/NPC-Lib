@@ -87,14 +87,10 @@ public class NPCModifier {
    */
   public void send(@NotNull Iterable<? extends Player> players) {
     players.forEach(player -> {
-      try {
-        for (LazyPacket packetContainer : this.packetContainers) {
-          ProtocolLibrary.getProtocolManager().sendServerPacket(
-              player,
-              packetContainer.provide(this.npc, player));
-        }
-      } catch (InvocationTargetException exception) {
-        exception.printStackTrace();
+      for (LazyPacket packetContainer : this.packetContainers) {
+        ProtocolLibrary.getProtocolManager().sendServerPacket(
+            player,
+            packetContainer.provide(this.npc, player));
       }
     });
     this.packetContainers.clear();
