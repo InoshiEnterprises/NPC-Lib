@@ -2,7 +2,6 @@ package com.github.juliarn.npc;
 
 import com.comphenix.protocol.wrappers.EnumWrappers.PlayerInfoAction;
 import com.comphenix.protocol.wrappers.WrappedGameProfile;
-import com.github.juliarn.npc.event.PlayerNPCHideEvent;
 import com.github.juliarn.npc.event.PlayerNPCShowEvent;
 import com.github.juliarn.npc.modifier.AnimationModifier;
 import com.github.juliarn.npc.modifier.EquipmentModifier;
@@ -139,12 +138,10 @@ public class NPC {
    *
    * @param player The player to hide the npc for.
    * @param plugin The plugin requesting the change.
-   * @param reason The reason why the npc was hidden for the player.
    */
   protected void hide(
       @NotNull Player player,
-      @NotNull Plugin plugin,
-      @NotNull PlayerNPCHideEvent.Reason reason
+      @NotNull Plugin plugin
   ) {
     this.visibility()
         .queuePlayerListChange(PlayerInfoAction.REMOVE_PLAYER)
